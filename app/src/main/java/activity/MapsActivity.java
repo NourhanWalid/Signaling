@@ -60,6 +60,7 @@ public class MapsActivity extends AppCompatActivity{
                             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10));
 
                             googleMap.addMarker(options);
+                            System.out.println(location.toString());
                         }
                     });
                 }
