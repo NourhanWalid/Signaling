@@ -17,6 +17,7 @@
     -->
     <!-- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name="app.AppController"
@@ -27,7 +28,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ProductsListActivity" />
+        <activity android:name="activity.ProductsListActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

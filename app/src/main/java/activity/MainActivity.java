@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 //import com.example.onlineshop.R;
 
-import com.example.onlineshop.ProductsListActivity;
 import com.example.onlineshop.R;
 
 import java.util.HashMap;

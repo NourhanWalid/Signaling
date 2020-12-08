@@ -1,4 +1,4 @@
-package com.example.onlineshop;
+package activity;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,16 +17,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.onlineshop.R;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
-
-import activity.Product;
-import activity.RecyclerAdapter;
 
 public class ProductsListActivity extends AppCompatActivity {
 
@@ -40,7 +37,7 @@ public class ProductsListActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private List<Product> products;
     private ProgressBar progressBar;
-    private static  final String BASE_URL = "http://192.168.1.4/android_api/getProducts.php";
+    private static  final String BASE_URL = "http://192.168.1.4/android_api/include/getProducts.php";
 
 //    @Override
 //    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -81,8 +78,8 @@ public class ProductsListActivity extends AppCompatActivity {
 
         mToolbar = findViewById(R.id.dashboard_toolbar);
         progressBar = findViewById(R.id.progressbar);
-        setSupportActionBar(mToolbar);
-        mActionBar = getSupportActionBar();
+       // setSupportActionBar(mToolbar);
+      //  mActionBar = getSupportActionBar();
 
         recyclerView = findViewById(R.id.products_recyclerView);
         manager = new GridLayoutManager(ProductsListActivity.this, 1);

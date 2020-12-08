@@ -14,6 +14,7 @@
     <string name="name">Fullname</string>
     <string name="map_key" translatable="false">AIzaSyCA2ws__CSUKLTrAKz3iU3yZfJX_92Uc08</string>
     <string name="title_activity_maps">Map</string>
+    <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
 
 
 </resources>

@@ -77,10 +77,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 //                mContext.startActivity(intent);
 //
 //            }
-//        });
+//       });
     }
 
-    @Override
+    //@Override
     public int getItemCount() {
         return products.size();
     }
