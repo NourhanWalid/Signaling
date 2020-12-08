@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 //import com.example.onlineshop.R;
 
+import com.example.onlineshop.ProductsListActivity;
 import com.example.onlineshop.R;
 
 import java.util.HashMap;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView txtEmail;
     private Button btnLogout;
     private Button btnMap;
+    private Button btnProducts;
 
     private SQLiteHandler db;
     private SessionManager session;
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         txtEmail = (TextView) findViewById(R.id.email);
         btnLogout = (Button) findViewById(R.id.btnLogout);
         btnMap = (Button) findViewById(R.id.btnMap);
+        btnProducts = (Button) findViewById(R.id.btnProducts);
         // SqLite database handler
         db = new SQLiteHandler(getApplicationContext());
 
@@ -76,6 +79,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btnProducts.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this, ProductsListActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     /**
