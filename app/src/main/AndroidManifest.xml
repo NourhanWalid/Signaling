@@ -28,6 +28,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name="activity.DetailedProductsActivity"></activity>
         <activity android:name="activity.ProductsListActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

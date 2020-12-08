@@ -18,7 +18,7 @@ public class Product {
     public void setName(String title) {
         this.name = title;
     }
-    public String getDescription(String description) {
+    public String getDescription() {
         return description;
     }
     public void setDescription(String description) {
