@@ -45,6 +45,7 @@ public class RecyclerAdapter2 extends RecyclerView.Adapter<RecyclerAdapter2.MyVi
     public RecyclerAdapter2 (Context context,List<FinalEntry> finalentry){
         this.mContext = context;
         this.finalentry = finalentry;
+        System.out.println(finalentry.size());
 
     }
 
@@ -77,7 +78,7 @@ public class RecyclerAdapter2 extends RecyclerView.Adapter<RecyclerAdapter2.MyVi
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(mContext).inflate(R.layout.activity_detailed_products,parent,false);
+        View view = LayoutInflater.from(mContext).inflate(R.layout.products_list_item_layout2,parent,false);
         return new MyViewHolder(view);
 
     }

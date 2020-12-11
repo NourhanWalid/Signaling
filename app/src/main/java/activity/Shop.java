@@ -38,8 +38,8 @@ public class Shop {
 this.longitude=longitude;
     }
         public static double getDistance(double lat2, double lon2) {
-            double lat1=MapsActivity.Lat1;
-            double lon1=MapsActivity.Long1;
+            double lat1=37.421998;
+            double lon1=-122.084000;
             //System.out.println(lat1);
             //System.out.println(lon1);
             double theta = lon1 - lon2;

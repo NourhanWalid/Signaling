@@ -32,12 +32,6 @@ public class DetailedProductsActivity extends AppCompatActivity {
 
     private Toolbar mToolbar;
     private ActionBar mActionBar;
-//    private ImageView mImage;
-//    private TextView mShopName;
-//    private TextView mPrice;
-//    private TextView mSpecialOffers;
-//    private TextView mDistance;
-//    private Instant Glide;
     private RecyclerView.Adapter mAdapter2;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager manager;
@@ -52,13 +46,6 @@ public class DetailedProductsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products_list);
-
-//        mToolbar = findViewById(R.id.toolbar);
-//        mImage = findViewById(R.id.image_view);
-//        mPrice = findViewById(R.id.price);
-//        mSpecialOffers = findViewById(R.id.specialoffers);
-//        mDistance = findViewById(R.id.distance);
-//        mShopName = findViewById(R.id.shopname);
         productshopresults=new ArrayList<ProductShops>();
         shopdistanceresults=new ArrayList<Double>();
         finalentry=new ArrayList<FinalEntry>();
@@ -71,28 +58,22 @@ public class DetailedProductsActivity extends AppCompatActivity {
         //setSupportActionBar(mToolbar);
         mActionBar = getSupportActionBar();
         mActionBar.setDisplayHomeAsUpEnabled(true);
-        mAdapter2 = new RecyclerAdapter2(DetailedProductsActivity.this,finalentry);
-        recyclerView.setAdapter(mAdapter2);
         //mActionBar.setHomeAsUpIndicator(getResources().getDrawable(R.drawable.ic_chevron_left_black_24dp));
 
-
 //        // Catching incoming intent
-//        Intent intent = getIntent();
+          Intent intent = getIntent();
 //        String description = intent.getStringExtra("description");
-//        String name = intent.getStringExtra("name");
+          String name = intent.getStringExtra("name");
 //        String image_url = intent.getStringExtra("image_url");
 
         for(int i=0;i<ProductsListActivity.productShops.size();i++){
             ProductShops productshop = ProductsListActivity.productShops.get(i);
-            String name=RecyclerAdapter.product_name;
+            //System.out.println(name);
             if(productshop.getProduct_name().equals(name)){
                 productshopresults.add(productshop);
             }
 
         }
-//        for(int i=0;i<productshopresults.size();i++){
-//            System.out.println(productshopresults.get(i).getShop_name());
-//        }
 
         for(int i=0;i<productshopresults.size();i++){
             String shopname=productshopresults.get(i).getShop_name();
@@ -105,13 +86,13 @@ public class DetailedProductsActivity extends AppCompatActivity {
                     //System.out.println(distance);
 
                 }
-                FinalEntry finalEntry=new FinalEntry(productshopresults.get(i).getShop_name(),productshopresults.get(i).getPrice().toString(),productshopresults.get(i).getSpecial_offers(),distance.toString());
-                finalentry.add(finalEntry);
-                System.out.println(finalentry.get(0).getPrice());
             }
-
+            FinalEntry finalEntry=new FinalEntry(productshopresults.get(i).getShop_name(),productshopresults.get(i).getPrice().toString(),productshopresults.get(i).getSpecial_offers(),distance.toString());
+            finalentry.add(finalEntry);
 
         }
+        mAdapter2 = new RecyclerAdapter2(DetailedProductsActivity.this,finalentry);
+        recyclerView.setAdapter(mAdapter2);
 //        if (intent !=null){
 //
 //            mActionBar.setTitle(name);

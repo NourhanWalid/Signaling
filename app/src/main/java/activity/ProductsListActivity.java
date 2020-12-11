@@ -160,10 +160,10 @@ public class ProductsListActivity extends AppCompatActivity {
         });
 
         Volley.newRequestQueue(ProductsListActivity.this).add(stringRequest);
-        System.out.println(productShops.size());
-        for (int i=0;i<productShops.size();i++) {
-            System.out.println(productShops.get(i).getShop_name());
-        }
+//        System.out.println(productShops.size());
+//        for (int i=0;i<productShops.size();i++) {
+//            System.out.println(productShops.get(i).getShop_name());
+//        }
 
     }
 

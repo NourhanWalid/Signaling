@@ -31,30 +31,36 @@
 
 
             <TextView
-                android:id="@+id/product_title"
-                style="@style/TextAppearance.AppCompat.Headline"
-                android:layout_width="322dp"
-                android:layout_height="wrap_content"
-                tools:text="Samsung Galaxy Note 10" />
-
-            <TextView
+                android:id="@+id/shopname"
+                style="@style/BoldTitleTextTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/TextAppearance.AppCompat.Body1"
-                tools:text="Description"
-                android:id="@+id/product_description"/>
+                android:text="name" />
 
-<!--            <RatingBar-->
-<!--                android:id="@+id/product_rating"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:saveEnabled="true"-->
-<!--                tools:rating="1.5"-->
-<!--                android:numStars="2"/>-->
+            <TextView
+                android:id="@+id/price"
+                style="@style/TextAppearance.AppCompat.Headline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="price" />
+
+            <TextView
+                android:id="@+id/specialoffers"
+                style="@style/TextAppearance.AppCompat.Headline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="special offers" />
+
+            <TextView
+                android:id="@+id/distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="distance"
+                style="@style/TextAppearance.AppCompat.Headline"/>
+
 
         </LinearLayout>
 
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
-

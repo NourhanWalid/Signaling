@@ -57,8 +57,6 @@ public class MapsActivity extends AppCompatActivity{
                         @Override
                         public void onMapReady(GoogleMap googleMap) {
                             LatLng latLng=new LatLng(location.getLatitude(),location.getLongitude());
-                            Lat1= location.getLatitude();
-                            Long1=location.getLongitude();
                             MarkerOptions options = new MarkerOptions().position(latLng).title("I am here");
 
                             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10));

@@ -39,7 +39,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     private RecyclerView.LayoutManager manager;
     private ProgressBar progressBar;
 
-    //private static  final String BASE_URL = "http://71.1.2.13/android_api/include/ProductShops.php";
 
     public RecyclerAdapter (Context context,List<Product> products){
         this.mContext = context;
@@ -103,6 +102,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
                     Intent intent = new Intent(mContext,DetailedProductsActivity.class);
 
                     intent.putExtra("name",product.getName());
+                    //System.out.println(product.getName());
                     intent.putExtra("image_url",product.getImage_url());
                     intent.putExtra("description",product.getDescription());
 
