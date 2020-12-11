@@ -8,7 +8,8 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -37,16 +38,32 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/name"
+                android:id="@+id/shopname"
+                style="@style/BoldTitleTextTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/SecondaryTextTheme"/>
+                android:text="name" />
 
             <TextView
-                android:id="@+id/description"
+                android:id="@+id/price"
+                style="@style/TextAppearance.AppCompat.Headline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/BoldTitleTextTheme"/>
+                android:text="price" />
+
+            <TextView
+                android:id="@+id/specialoffers"
+                style="@style/TextAppearance.AppCompat.Headline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="special offers" />
+
+            <TextView
+                android:id="@+id/distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="distance"
+                style="@style/TextAppearance.AppCompat.Headline"/>
 
 
         </LinearLayout>

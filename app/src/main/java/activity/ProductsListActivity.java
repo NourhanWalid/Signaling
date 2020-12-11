@@ -37,40 +37,11 @@ public class ProductsListActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private List<Product> products;
     private ProgressBar progressBar;
-    private static  final String BASE_URL = "http://192.168.1.4/android_api/include/getProducts.php";
-
-//    @Override
-//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-//
-//        Intent intent;
-//
-//        if (item.getItemId() == R.id.action_settings){
-//
-//            intent = new Intent(HomeActivity.this,SettingsActivity.class);
-//            startActivity(intent);
-//            Toast.makeText(HomeActivity.this,"Settings clicked!",Toast.LENGTH_SHORT).show();
-//        }
-//
-//        if (item.getItemId() == R.id.action_notifications){
-//
-//            intent = new Intent(ProductsListActivity.this,NotificationsActivity.class);
-//            startActivity(intent);
-//            Toast.makeText(HomeActivity.this,"Notifications clicked!",Toast.LENGTH_SHORT).show();
-//        }
-//
-//        return true;
-//    }
-
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//
-//        MenuInflater menuInflater = getMenuInflater();
-//        menuInflater.inflate(R.menu.dashboard_menu,menu);
-//
-//        return true;
-//    }
-
+    private static  final String BASE_URL = "http://192.168.1.8/android_api/include/getProducts.php";
+    private static final String BASE_URL2= "http://192.168.1.8/android_api/include/ProductShops.php";
+    private static final String BASE_URL3="http://192.168.1.8/android_api/include/getShops.php";
+    public static List<ProductShops> productShops;
+    public static List<Shop> shops;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,9 +55,15 @@ public class ProductsListActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.products_recyclerView);
         manager = new GridLayoutManager(ProductsListActivity.this, 1);
         recyclerView.setLayoutManager(manager);
+
         products = new ArrayList<Product>();
+        productShops=new ArrayList<ProductShops>();
+        shops=new ArrayList<Shop>();
 
         getProducts();
+        getProductShops();
+        getShops();
+
 
     }
 
@@ -129,6 +106,107 @@ public class ProductsListActivity extends AppCompatActivity {
 
                 progressBar.setVisibility(View.GONE);
                 Toast.makeText(ProductsListActivity.this, error.toString(),Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+        Volley.newRequestQueue(ProductsListActivity.this).add(stringRequest);
+
+    }
+
+    private void getProductShops (){
+        progressBar.setVisibility(View.VISIBLE);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, BASE_URL2,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        progressBar.setVisibility(View.GONE);
+
+                        try {
+
+                            JSONArray array = new JSONArray(response);
+                            for (int i = 0; i<array.length(); i++){
+
+                                JSONObject object = array.getJSONObject(i);
+
+                                String shop_name = object.getString("shop_name");
+                                String product_name = object.getString("product_name");
+                                Integer price = object.getInt("price");
+                                String special_offers = object.getString("special_offers");
+
+                                ProductShops productShop = new ProductShops(shop_name,product_name,price,special_offers);
+                                productShops.add(productShop);
+                                //System.out.println(productShops.get(i).getProduct_name());
+                            }
+
+                        }catch (Exception e){
+
+                        }
+
+//                        mAdapter = new RecyclerAdapter(mContext,products);
+//                        recyclerView.setAdapter(mAdapter);
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                progressBar.setVisibility(View.GONE);
+                //Toast.makeText(DetailedProductsActivity.this, error.toString(),Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+        Volley.newRequestQueue(ProductsListActivity.this).add(stringRequest);
+        System.out.println(productShops.size());
+        for (int i=0;i<productShops.size();i++) {
+            System.out.println(productShops.get(i).getShop_name());
+        }
+
+    }
+
+    private void getShops (){
+        progressBar.setVisibility(View.VISIBLE);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, BASE_URL3,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        progressBar.setVisibility(View.GONE);
+
+                        try {
+
+                            JSONArray array = new JSONArray(response);
+                            for (int i = 0; i<array.length(); i++){
+
+                                JSONObject object = array.getJSONObject(i);
+
+                                String name = object.getString("name");
+                                double latitude = object.getDouble("latitude");
+                                double longitude = object.getDouble("longitude");
+
+                                Shop shop = new Shop(name,latitude,longitude);
+                                shops.add(shop);
+                                //System.out.println(shops.get(i).getName());
+                            }
+
+                        }catch (Exception e){
+
+                        }
+
+//                        mAdapter = new RecyclerAdapter(mContext,products);
+//                        recyclerView.setAdapter(mAdapter);
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                progressBar.setVisibility(View.GONE);
+                //Toast.makeText(DetailedProductsActivity.this, error.toString(),Toast.LENGTH_LONG).show();
 
             }
         });

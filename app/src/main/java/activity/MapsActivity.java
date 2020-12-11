@@ -27,6 +27,8 @@ import com.google.android.gms.tasks.Task;
 public class MapsActivity extends AppCompatActivity{
     SupportMapFragment supportMapFragment;
     FusedLocationProviderClient client;
+    public static double Lat1;
+    public static double Long1;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -55,6 +57,8 @@ public class MapsActivity extends AppCompatActivity{
                         @Override
                         public void onMapReady(GoogleMap googleMap) {
                             LatLng latLng=new LatLng(location.getLatitude(),location.getLongitude());
+                            Lat1= location.getLatitude();
+                            Long1=location.getLongitude();
                             MarkerOptions options = new MarkerOptions().position(latLng).title("I am here");
 
                             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10));
