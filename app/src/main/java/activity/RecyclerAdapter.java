@@ -2,6 +2,8 @@ package activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.bumptech.glide.Glide;
+import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,12 +23,19 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.bumptech.glide.Priority;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.onlineshop.R;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
@@ -80,17 +91,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
             final Product product = products.get(position);
             product_name=product.getName();
+            //Glide.with(mContext).load(product.getImage_url()).into(holder.mImageView);
 
-
-           // getShops();
-            RequestOptions options = new RequestOptions()
-                    .centerCrop()
-                    .placeholder(R.mipmap.ic_launcher_round)
-                    .error(R.mipmap.ic_launcher_round);
-
-
-
-            //Glide.with(RecyclerAdapter.this).load(product.getImage_url()).into(holder.mImageView);
+//            RequestOptions options = new RequestOptions()
+//                    .centerCrop()
+//                    .placeholder(R.mipmap.ic_launcher_round)
+//                    .error(R.mipmap.ic_launcher_round).diskCacheStrategy(DiskCacheStrategy.ALL).priority(Priority.HIGH).dontAnimate().dontTransform();
+            Picasso.get().load(product.getImage_url()).into(holder.mImageView);
             holder.mDescription.setText(product.getDescription());
             holder.mName.setText(product.getName());
 
