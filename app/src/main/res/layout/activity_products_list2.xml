@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="activity.DetailedProductsActivity">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="wrap_content"
+        >
+            <Button
+                android:id="@+id/savedlist"
+                android:layout_width="163dp"
+                android:layout_height="66dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="23dp"
+                android:layout_marginTop="15dp"
+                android:text="Saved Shops" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:id="@+id/progressbar" />
+
+
+        <Button
+            android:id="@+id/sortdistance"
+            android:layout_width="163dp"
+            android:layout_height="66dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="15dp"
+            android:text="Sort According To distance:" />
+
+        <Button
+            android:id="@+id/sortprice"
+            android:layout_width="163dp"
+            android:layout_height="66dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="145dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginBottom="145dp"
+            android:text="Sort According To price:" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/products_recyclerView"
+            android:layout_width="match_parent"
+
+            android:layout_height="592dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="3dp"
+            android:overScrollMode="never" />
+
+    </RelativeLayout>
+</LinearLayout>
+
+

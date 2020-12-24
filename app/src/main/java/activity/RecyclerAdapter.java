@@ -72,7 +72,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
             mDescription = view.findViewById(R.id.product_description);
             mContainer = view.findViewById(R.id.product_container);
 
-
         }
     }
 

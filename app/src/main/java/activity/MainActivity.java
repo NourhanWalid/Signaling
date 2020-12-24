@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     private SQLiteHandler db;
     private SessionManager session;
+    private Button btnSaved;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         btnLogout = (Button) findViewById(R.id.btnLogout);
         btnMap = (Button) findViewById(R.id.btnMap);
         btnProducts = (Button) findViewById(R.id.btnProducts);
+        btnSaved = (Button) findViewById(R.id.btnSaved);
         // SqLite database handler
         db = new SQLiteHandler(getApplicationContext());
 
@@ -84,6 +86,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent=new Intent(MainActivity.this, ProductsListActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        btnSaved.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),
+                        SavedActivity.class);
+                startActivity(i);
+                finish();
             }
         });
 

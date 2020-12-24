@@ -43,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
     private SessionManager session;
     private SQLiteHandler db;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         inputPassword = (EditText) findViewById(R.id.password);
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnLinkToRegister = (Button) findViewById(R.id.btnLinkToRegisterScreen);
+
 
         // Progress dialog
         pDialog = new ProgressDialog(this);
@@ -103,7 +105,10 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
     }
+
+
 
     /**
      * function to verify login details in mysql db

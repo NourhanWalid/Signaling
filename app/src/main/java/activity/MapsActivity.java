@@ -25,8 +25,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 public class MapsActivity extends AppCompatActivity{
-    SupportMapFragment supportMapFragment;
-    FusedLocationProviderClient client;
+    public static SupportMapFragment supportMapFragment;
+    public static FusedLocationProviderClient client;
     public static double Lat1;
     public static double Long1;
 
@@ -47,7 +47,7 @@ public class MapsActivity extends AppCompatActivity{
 
     }
 
-    private void getCurrentLocation() {
+    public static void getCurrentLocation() {
         Task<Location> task =client.getLastLocation();
         task.addOnSuccessListener(new OnSuccessListener<Location>() {
             @Override
@@ -57,12 +57,15 @@ public class MapsActivity extends AppCompatActivity{
                         @Override
                         public void onMapReady(GoogleMap googleMap) {
                             LatLng latLng=new LatLng(location.getLatitude(),location.getLongitude());
+
                             MarkerOptions options = new MarkerOptions().position(latLng).title("I am here");
 
                             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,10));
 
                             googleMap.addMarker(options);
                             System.out.println(location.toString());
+                            System.out.println(location.getLatitude());
+                            System.out.println(location.getLongitude());
                         }
                     });
                 }
