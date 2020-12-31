@@ -95,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(),
                         SavedActivity.class);
                 startActivity(i);
-                finish();
             }
         });
 

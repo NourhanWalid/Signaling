@@ -22,6 +22,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     // Login table name
     private static final String TABLE_USER = "user";
+    private static final String TABLE_SHOP="shop";
 
     // Login Table Columns names
     private static final String KEY_ID = "id";
@@ -31,6 +32,11 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     private static final String KEY_CREATED_AT = "created_at";
     private static final String KEY_ADDRESS = "address";
     private static final String KEY_PHONENUMBER = "phonenumber";
+    private static final String KEY_SHOPNAME = "shop_name";
+    private static final String KEY_PRODUCTNAME = "product_name";
+    private static final String KEY_PRICE = "price";
+    private static final String KEY_SPECIALOFFERS = "special_offers";
+
 
     public SQLiteHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -82,6 +88,24 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         Log.d(TAG, "New user inserted into sqlite: " + id);
     }
 
+    public void addShop(String email, String shopname, String productname, String price,String specialoffers) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_EMAIL, email); // Name
+        values.put(KEY_SHOPNAME, shopname); // Email
+        values.put(KEY_PRODUCTNAME, productname); // Email
+        values.put(KEY_PRICE, price);
+        values.put(KEY_SPECIALOFFERS, specialoffers);
+        // Created At
+
+        // Inserting Row
+        long id = db.insert(TABLE_SHOP, null, values);
+        db.close(); // Closing database connection
+
+        Log.d(TAG, "New saved shop inserted into sqlite: " + id);
+    }
+
     /**
      * Getting user data from database
      * */
@@ -107,6 +131,30 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         Log.d(TAG, "Fetching user from Sqlite: " + user.toString());
 
         return user;
+    }
+
+    public HashMap<String, String> getSavedShopDetails() {
+        HashMap<String, String> shop = new HashMap<String, String>();
+        String selectQuery = "SELECT  * FROM " + TABLE_SHOP;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        // Move to first row
+        cursor.moveToFirst();
+        if (cursor.getCount() > 0) {
+            shop.put("email", cursor.getString(1));
+            shop.put("shopname", cursor.getString(2));
+            shop.put("productname", cursor.getString(3));
+            shop.put("price", cursor.getString(4));
+            shop.put("specialoffers", cursor.getString(5));
+
+        }
+        cursor.close();
+        db.close();
+        // return user
+        Log.d(TAG, "Fetching user from Sqlite: " + shop.toString());
+
+        return shop;
     }
 
     /**

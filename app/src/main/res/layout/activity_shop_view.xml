@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="@dimen/card_view_corner_radius"
+    app:cardElevation="10dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/product_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="346dp"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+
+            <TextView
+                android:id="@+id/shopname"
+                style="@style/BoldTitleTextTheme"
+                android:layout_width="351dp"
+                android:layout_height="50dp"
+                android:text="name" />
+
+            <TextView
+                android:id="@+id/productname"
+                style="@style/TextAppearance.AppCompat.Headline"
+                android:layout_width="353dp"
+                android:layout_height="58dp"
+                android:text="product name" />
+
+            <TextView
+                android:id="@+id/price"
+                style="@style/TextAppearance.AppCompat.Headline"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:text="price" />
+
+            <TextView
+                android:id="@+id/specialoffers"
+                style="@style/TextAppearance.AppCompat.Headline"
+                android:layout_width="351dp"
+                android:layout_height="83dp"
+                android:text="special offers" />
+
+            <TextView
+                android:id="@+id/distance"
+                style="@style/TextAppearance.AppCompat.Headline"
+                android:layout_width="350dp"
+                android:layout_height="71dp"
+                android:text="distance" />
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSaveShop"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:background="@color/btn_login_bg"
+            android:text="SAVE SHOP TO FAVORITES"
+            android:textColor="@color/btn_login" />
+        <Button
+            android:id="@+id/btnDeleteSavedShop"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:background="@color/btn_login_bg"
+            android:text="REMOVE FROM FAVORITES"
+            android:textColor="@color/design_default_color_primary" />
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

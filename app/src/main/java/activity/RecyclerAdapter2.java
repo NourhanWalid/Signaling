@@ -66,8 +66,7 @@ public class RecyclerAdapter2 extends RecyclerView.Adapter<RecyclerAdapter2.MyVi
         private TextView mPrice;
         private TextView mSpecialOffers;
         private TextView mDistance;
-        private Button msave;
-
+        private TextView productname;
         public MyViewHolder (View view){
             super(view);
 
@@ -76,7 +75,7 @@ public class RecyclerAdapter2 extends RecyclerView.Adapter<RecyclerAdapter2.MyVi
             mSpecialOffers = view.findViewById(R.id.specialoffers);
             mDistance = view.findViewById(R.id.distance);
             mContainer = view.findViewById(R.id.product_container);
-            msave = (Button) view.findViewById(R.id.save);
+            productname=view.findViewById(R.id.productname);
 
         }
     }
@@ -112,24 +111,24 @@ public class RecyclerAdapter2 extends RecyclerView.Adapter<RecyclerAdapter2.MyVi
         //holder.mName.setText(product.getName());
 
 
-//        holder.mContainer.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                Intent intent = new Intent(mContext,ShopActivity.class);
-//
-//                intent.putExtra("shopname",finalEntry.getShop_name());
-//                intent.putExtra("Price",finalEntry.getPrice());
-//                intent.putExtra("SpecialOffers",finalEntry.getSpecialoffers());
-//                intent.putExtra("Distance",finalEntry.getDistance());
-////                intent.putExtra("image_url",product.getImage_url());
-////                intent.putExtra("description",product.getDescription());
-//
-//
-//                mContext.startActivity(intent);
-//
-//            }
-//        });
+        holder.mContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(mContext,ShopViewActivity.class);
+
+                intent.putExtra("shopname",finalEntry.getShop_name());
+                intent.putExtra("price",finalEntry.getPrice());
+                intent.putExtra("specialoffers",finalEntry.getSpecialoffers());
+                intent.putExtra("distance",finalEntry.getDistance());
+                intent.putExtra("productname",DetailedProductsActivity.name);
+
+
+
+                mContext.startActivity(intent);
+
+            }
+        });
     }
 
     //@Override

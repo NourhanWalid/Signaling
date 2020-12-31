@@ -51,6 +51,7 @@ public class DetailedProductsActivity extends AppCompatActivity {
     private ProgressDialog pDialog;
     private Button distanceSort;
     private Button priceSort;
+    public static String name;
 
 
 
@@ -77,7 +78,7 @@ public class DetailedProductsActivity extends AppCompatActivity {
 //        // Catching incoming intent
         Intent intent = getIntent();
 //        String description = intent.getStringExtra("description");
-        String name = intent.getStringExtra("name");
+        name = intent.getStringExtra("name");
 //        String image_url = intent.getStringExtra("image_url");
 
         for (int i = 0; i < ProductsListActivity.productShops.size(); i++) {

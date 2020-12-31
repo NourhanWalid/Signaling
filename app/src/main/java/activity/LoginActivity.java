@@ -42,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressDialog pDialog;
     private SessionManager session;
     private SQLiteHandler db;
+    public static String email;
 
 
     @Override
@@ -77,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                String email = inputEmail.getText().toString().trim();
+                email = inputEmail.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
 
                 // Check for empty data in the form
@@ -151,10 +152,12 @@ public class LoginActivity extends AppCompatActivity {
                         //db.addUser2(name, email, uid, address, phonenumber, created_at);
 
                         // Launch main activity
+                        Log.d(TAG, "AAA"+email);
                         Intent intent = new Intent(LoginActivity.this,
                                 MainActivity.class);
                         startActivity(intent);
                         finish();
+
                     } else {
                         // Error in login. Get the error message
                         String errorMsg = jObj.getString("error_msg");
@@ -168,6 +171,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
             }
+
         }, new Response.ErrorListener() {
 
             @Override

@@ -37,9 +37,9 @@ public class ProductsListActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private List<Product> products;
     private ProgressBar progressBar;
-    private static  final String BASE_URL = "http://172.20.10.14/android_api/include/getProducts.php";
-    private static final String BASE_URL2= "http://172.20.10.14/android_api/include/ProductShops.php";
-    private static final String BASE_URL3="http://172.20.10.14/android_api/include/getShops.php";
+    private static  final String BASE_URL = "http://192.168.1.7/android_api/include/getProducts.php";
+    private static final String BASE_URL2= "http://192.168.1.7/android_api/include/ProductShops.php";
+    private static final String BASE_URL3="http://192.168.1.7/android_api/include/getShops.php";
     public static List<ProductShops> productShops;
     public static List<Shop> shops;
     @Override

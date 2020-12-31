@@ -28,7 +28,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="activity.SavedActivity"></activity>
+        <activity android:name="activity.ShopViewActivity"></activity>
+        <activity android:name="activity.SavedActivity" />
         <activity android:name="activity.DetailedProductsActivity" />
         <activity android:name="activity.ProductsListActivity" />
         <!--
